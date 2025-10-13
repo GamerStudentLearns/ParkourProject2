@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine;
+
 public class Controller : MonoBehaviour
 {
     public float walkSpeed = 6f;
@@ -20,6 +22,8 @@ public class Controller : MonoBehaviour
     public float crouchCameraOffset = -0.5f;
     public float crouchSpeed = 3f;
 
+    public float rotationSmoothTime = 0.1f;
+
     private CharacterController controller;
     private Vector3 velocity;
     private bool isGrounded;
@@ -32,6 +36,8 @@ public class Controller : MonoBehaviour
     private Vector3 originalCameraLocalPos;
     private Vector3 targetCameraLocalPos;
 
+    private float currentVelocityAngle;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -42,7 +48,7 @@ public class Controller : MonoBehaviour
 
     void Update()
     {
-        HandleCrouch(); // 👈 Must come before movement
+        HandleCrouch();
         HandleMovement();
         HandleMouseLook();
         HandleJump();
@@ -74,8 +80,23 @@ public class Controller : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
-        controller.Move(move * speed * Time.deltaTime);
+        Vector3 camForward = cameraTransform.forward;
+        Vector3 camRight = cameraTransform.right;
+        camForward.y = 0f;
+        camRight.y = 0f;
+        camForward.Normalize();
+        camRight.Normalize();
+
+        Vector3 moveDir = camRight * x + camForward * z;
+
+        if (moveDir.magnitude >= 0.1f)
+        {
+            float targetAngle = Mathf.Atan2(moveDir.x, moveDir.z) * Mathf.Rad2Deg;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref currentVelocityAngle, rotationSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+        }
+
+        controller.Move(moveDir.normalized * speed * Time.deltaTime);
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
@@ -90,7 +111,6 @@ public class Controller : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
         cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        transform.Rotate(Vector3.up * mouseX);
     }
 
     void HandleJump()
@@ -107,7 +127,7 @@ public class Controller : MonoBehaviour
         {
             isSliding = true;
             slideTimer = slideDuration;
-            slideDipProgress = 0f; // Reset dip progress
+            slideDipProgress = 0f;
         }
 
         if (isSliding)
@@ -129,14 +149,14 @@ public class Controller : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.C))
         {
-            isSliding = false; // Cancel slide if crouching
+            isSliding = false;
             controller.height = crouchHeight;
             targetCameraLocalPos = originalCameraLocalPos + Vector3.up * crouchCameraOffset;
         }
         else
         {
             controller.height = standingHeight;
-            if (!isSliding) // Prevent overriding slide dip
+            if (!isSliding)
                 targetCameraLocalPos = originalCameraLocalPos;
         }
     }
