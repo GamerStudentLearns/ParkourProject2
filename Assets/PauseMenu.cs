@@ -11,9 +11,9 @@ public class PauseMenu : MonoBehaviour
 
 
 
-void Update()
+void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused) 
             {
@@ -37,7 +37,7 @@ void Update()
 
     }
 
-    void Pause()
+    public void Pause()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
