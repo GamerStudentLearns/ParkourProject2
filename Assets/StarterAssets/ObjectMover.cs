@@ -6,6 +6,8 @@ public class ObjectMover : MonoBehaviour
     public Vector3 offset = new Vector3(0, 5, 0); // How far up to move
     public float moveDuration = 2f;               // Time to move up/down
     public float pauseDuration = 2f;              // Time to pause at top/bottom
+    public float minStartDelay = 0f;              // Minimum delay before starting
+    public float maxStartDelay = 3f;              // Maximum delay before starting
 
     private Vector3 startPos;
     private Vector3 targetPos;
@@ -14,6 +16,13 @@ public class ObjectMover : MonoBehaviour
     {
         startPos = transform.position;
         targetPos = startPos + offset;
+        float startDelay = Random.Range(minStartDelay, maxStartDelay);
+        StartCoroutine(DelayedStart(startDelay));
+    }
+
+    IEnumerator DelayedStart(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         StartCoroutine(MoveCycle());
     }
 
@@ -41,4 +50,5 @@ public class ObjectMover : MonoBehaviour
         obj.position = to;
     }
 }
+
 
