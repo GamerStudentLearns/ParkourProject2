@@ -23,7 +23,7 @@ public class MomentumFreeze : MonoBehaviour
         if (isFrozen)
         {
             // Stop horizontal movement only
-            rb.velocity = new Vector3(0f, rb.velocity.y, 0f);
+            rb.linearVelocity = new Vector3(0f, rb.linearVelocity.y, 0f);
             rb.angularVelocity = Vector3.zero;
         }
     }

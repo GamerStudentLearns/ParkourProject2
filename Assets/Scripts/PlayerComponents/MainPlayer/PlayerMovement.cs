@@ -90,13 +90,13 @@ public class PlayerMovement : MonoBehaviour
         
         //Create a physic material with no friction to allow for wallrunning and smooth movement not being dependant
         //and smooth movement not being dependant on the in-built unity physics engine, apart from collisions.
-        PhysicMaterial mat = new PhysicMaterial("tempMat");
+        PhysicsMaterial mat = new PhysicsMaterial("tempMat");
 
-        mat.bounceCombine = PhysicMaterialCombine.Average;
+        mat.bounceCombine = PhysicsMaterialCombine.Average;
 
         mat.bounciness = 0;
 
-        mat.frictionCombine = PhysicMaterialCombine.Minimum;
+        mat.frictionCombine = PhysicsMaterialCombine.Minimum;
 
         mat.staticFriction = 0;
         mat.dynamicFriction = 0;
@@ -165,7 +165,7 @@ public class PlayerMovement : MonoBehaviour
         crouchStartTime = Time.time;
         canHighJump = true;
 
-        if (rb.velocity.magnitude > 0.5f && grounded)
+        if (rb.linearVelocity.magnitude > 0.5f && grounded)
         {
             rb.AddForce(orientation.transform.forward * slideForce);
         }
@@ -232,7 +232,7 @@ public class PlayerMovement : MonoBehaviour
         if ((grounded || isWallRunning || surfing) && readyToJump && !crouching)
         {
             MonoBehaviour.print("jumping");
-            Vector3 velocity = rb.velocity;
+            Vector3 velocity = rb.linearVelocity;
             readyToJump = false;
 
             float timeSinceCrouch = Time.time - crouchStartTime;
@@ -241,13 +241,13 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(Vector2.up * appliedJumpForce * 1.5f);
             rb.AddForce(normalVector * appliedJumpForce * 0.5f);
 
-            if (rb.velocity.y < 0.5f)
+            if (rb.linearVelocity.y < 0.5f)
             {
-                rb.velocity = new Vector3(velocity.x, 0f, velocity.z);
+                rb.linearVelocity = new Vector3(velocity.x, 0f, velocity.z);
             }
-            else if (rb.velocity.y > 0f)
+            else if (rb.linearVelocity.y > 0f)
             {
-                rb.velocity = new Vector3(velocity.x, velocity.y / 2f, velocity.z);
+                rb.linearVelocity = new Vector3(velocity.x, velocity.y / 2f, velocity.z);
             }
 
             if (isWallRunning)
@@ -293,7 +293,7 @@ public class PlayerMovement : MonoBehaviour
         //Slow down sliding
         if (crouching)
         {
-            rb.AddForce(moveSpeed * Time.deltaTime * -rb.velocity.normalized * slideCounterMovement);
+            rb.AddForce(moveSpeed * Time.deltaTime * -rb.linearVelocity.normalized * slideCounterMovement);
             return;
         }
 
@@ -308,11 +308,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Limit diagonal running. This will also cause a full stop if sliding fast and un-crouching, so not optimal.
-        if (Mathf.Sqrt((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.z, 2))) > maxSpeed)
+        if (Mathf.Sqrt((Mathf.Pow(rb.linearVelocity.x, 2) + Mathf.Pow(rb.linearVelocity.z, 2))) > maxSpeed)
         {
-            float fallspeed = rb.velocity.y;
-            Vector3 n = rb.velocity.normalized * maxSpeed;
-            rb.velocity = new Vector3(n.x, fallspeed, n.z);
+            float fallspeed = rb.linearVelocity.y;
+            Vector3 n = rb.linearVelocity.normalized * maxSpeed;
+            rb.linearVelocity = new Vector3(n.x, fallspeed, n.z);
         }
     }
 
@@ -324,12 +324,12 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 FindVelRelativeToLook()
     {
         float lookAngle = orientation.transform.eulerAngles.y;
-        float moveAngle = Mathf.Atan2(rb.velocity.x, rb.velocity.z) * Mathf.Rad2Deg;
+        float moveAngle = Mathf.Atan2(rb.linearVelocity.x, rb.linearVelocity.z) * Mathf.Rad2Deg;
 
         float u = Mathf.DeltaAngle(lookAngle, moveAngle);
         float v = 90 - u;
 
-        float magnitue = rb.velocity.magnitude;
+        float magnitue = rb.linearVelocity.magnitude;
         float yMag = magnitue * Mathf.Cos(u * Mathf.Deg2Rad);
         float xMag = magnitue * Mathf.Cos(v * Mathf.Deg2Rad);
 
@@ -504,7 +504,7 @@ public class PlayerMovement : MonoBehaviour
             wallNormalVector = normal;
             if (!isWallRunning)
             {
-                rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+                rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
                 rb.AddForce(Vector3.up * initialForce, ForceMode.Impulse);
             }
             isWallRunning = true;
