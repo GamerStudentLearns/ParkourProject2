@@ -25,7 +25,7 @@ public class SpeedrunTimer : MonoBehaviour
         isRunning = false;
         finalTime = elapsedTime;
         Debug.Log($"Speedrun ended at: {FormatTime(finalTime)}");
-        SceneManager.LoadScene("LevelOneEndScene");
+       
     }
 
 
