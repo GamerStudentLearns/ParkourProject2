@@ -23,6 +23,7 @@ public class TimerTrigger : MonoBehaviour
             else
             {
                 timerScript.StopTimer();
+                hasStarted = false; // Allow timer to be started again
                 Debug.Log("Timer Stopped");
             }
         }

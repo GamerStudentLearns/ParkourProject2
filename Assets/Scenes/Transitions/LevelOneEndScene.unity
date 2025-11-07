@@ -1516,7 +1516,6 @@ GameObject:
   - component: {fileID: 2101808271}
   - component: {fileID: 2101808274}
   - component: {fileID: 2101808275}
-  - component: {fileID: 2101808277}
   m_Layer: 5
   m_Name: Victory
   m_TagString: Untagged
@@ -1636,19 +1635,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 0}
---- !u!114 &2101808277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2101808269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36865dc63b5f0b34c9342fb24af0641b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ResultScript
-  resultText: {fileID: 1607539159}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

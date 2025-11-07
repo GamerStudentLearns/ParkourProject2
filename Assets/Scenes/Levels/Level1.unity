@@ -9016,6 +9016,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1554900342797844817, guid: 963830fed58abcc4e80c6d258f35ddef, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554900342797844817, guid: 963830fed58abcc4e80c6d258f35ddef, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 2285410972667913529, guid: 963830fed58abcc4e80c6d258f35ddef, type: 3}
       propertyPath: m_Name
       value: timer
@@ -9099,6 +9107,10 @@ PrefabInstance:
     - target: {fileID: 2330947549850534651, guid: 963830fed58abcc4e80c6d258f35ddef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3675275578787053467, guid: 963830fed58abcc4e80c6d258f35ddef, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 145.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
