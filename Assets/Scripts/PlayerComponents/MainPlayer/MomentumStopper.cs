@@ -18,7 +18,7 @@ public class MomentumFreeze : MonoBehaviour
     void Update()
     {
         // Check if F is held
-        isFrozen = Input.GetKey(KeyCode.LeftControl);
+        isFrozen = Input.GetKey(KeyCode.LeftShift);
 
         if (isFrozen)
         {
