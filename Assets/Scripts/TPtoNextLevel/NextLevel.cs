@@ -7,6 +7,6 @@ public class NextLevel : MonoBehaviour
 {
     void OnTriggerEnter (Collider other)
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("VictoryScene");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("LevelOneEndScene");
     }
 }
