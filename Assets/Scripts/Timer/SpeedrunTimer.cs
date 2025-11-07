@@ -1,11 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SpeedrunTimer : MonoBehaviour
 {
     public Text timerText;          // Reference to UI Text for displaying time
     private float elapsedTime = 0f;
     private bool isRunning = false;
+    public static float finalTime = 0f;
+
+   
+
+
 
     public void StartTimer()
     {
@@ -13,10 +19,16 @@ public class SpeedrunTimer : MonoBehaviour
         isRunning = true;
     }
 
+
     public void StopTimer()
     {
         isRunning = false;
+        finalTime = elapsedTime;
+        Debug.Log($"Speedrun ended at: {FormatTime(finalTime)}");
+        SceneManager.LoadScene("LevelOneEndScene");
     }
+
+
 
     void Update()
     {
@@ -35,4 +47,17 @@ public class SpeedrunTimer : MonoBehaviour
 
         timerText.text = $"{minutes:00}:{seconds:00}.{milliseconds:000}";
     }
+    string FormatTime(float time)
+    {
+        int minutes = Mathf.FloorToInt(time / 60f);
+        int seconds = Mathf.FloorToInt(time % 60f);
+        int milliseconds = Mathf.FloorToInt((time * 1000f) % 1000f);
+        return $"{minutes:00}:{seconds:00}.{milliseconds:000}";
+    }
+  
+
+
+
+
+
 }
