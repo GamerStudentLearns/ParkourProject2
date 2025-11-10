@@ -6204,6 +6204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67b94610fa5a0247a2c3b16fd955f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneToLoad: 
 --- !u!65 &669187605
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12077,7 +12078,7 @@ GameObject:
   - component: {fileID: 1401881588}
   - component: {fileID: 1401881592}
   m_Layer: 0
-  m_Name: TpToTransition
+  m_Name: ToWin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12189,6 +12190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67b94610fa5a0247a2c3b16fd955f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneToLoad: LevelOneEndScene
 --- !u!1 &1406883352
 GameObject:
   m_ObjectHideFlags: 0
@@ -16130,6 +16132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67b94610fa5a0247a2c3b16fd955f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneToLoad: 
 --- !u!65 &2014390938
 BoxCollider:
   m_ObjectHideFlags: 0

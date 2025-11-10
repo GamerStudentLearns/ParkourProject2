@@ -1,12 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NextLevel : MonoBehaviour
+public class SceneTriggerLoader : MonoBehaviour
 {
-    void OnTriggerEnter (Collider other)
+    public string sceneToLoad; // Set this in the Inspector
+
+    private void OnTriggerEnter(Collider other)
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("LevelOneEndScene");
+        if (other.CompareTag("Player")) // Make sure the object has the "Player" tag
+        {
+            LoadScene(sceneToLoad);
+        }
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }
