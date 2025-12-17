@@ -50,7 +50,7 @@ void Update ()
     public void LoadMenu() 
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenueScene");
+        SceneManager.LoadScene("OverhauledMenu");
         Debug.Log("Loading Menu...");
     
     }
