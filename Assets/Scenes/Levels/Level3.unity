@@ -4752,7 +4752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67b94610fa5a0247a2c3b16fd955f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneTriggerLoader
-  sceneToLoad: WinScene
+  sceneToLoad: LevelThreeEndScene
 --- !u!65 &1948392069
 BoxCollider:
   m_ObjectHideFlags: 0
