@@ -4,9 +4,9 @@ public class GrappleHook : MonoBehaviour
 {
     [Header("References")]
     public Camera playerCamera;        // Assign your player camera
-    public Transform gunTip;            // Rope start position (e.g., weapon tip)
-    public LineRenderer lineRenderer;   // Rope visual
-    public Rigidbody playerRb;          // Player Rigidbody
+    public Transform gunTip;           // Rope start position (e.g., weapon tip)
+    public LineRenderer lineRenderer;  // Rope visual
+    public Rigidbody playerRb;         // Player Rigidbody
 
     [Header("Settings")]
     [SerializeField] private float maxDistance = 30f;   // Grapple range
@@ -14,6 +14,9 @@ public class GrappleHook : MonoBehaviour
     [SerializeField] private LayerMask grappleLayer;    // Valid grapple layers
     [SerializeField] private float stopDistance = 1f;   // Distance at which grapple auto-stops
     [SerializeField] private float ropeWidth = 0.05f;   // Rope thickness
+
+    [Header("Visual Effects")]
+    [SerializeField] private ParticleSystem speedLines; // Assign particle system prefab in Inspector
 
     private Vector3 grapplePoint;
     private bool isGrappling = false;
@@ -24,6 +27,9 @@ public class GrappleHook : MonoBehaviour
         lineRenderer.startWidth = ropeWidth;
         lineRenderer.endWidth = ropeWidth;
         lineRenderer.positionCount = 0;
+
+        if (speedLines != null)
+            speedLines.Stop();
     }
 
     void Update()
@@ -76,6 +82,22 @@ public class GrappleHook : MonoBehaviour
                 Vector3.MoveTowards(playerRb.position, grapplePoint, pullSpeed * Time.fixedDeltaTime)
             );
 
+            // Update speed lines orientation + intensity
+            if (speedLines != null)
+            {
+                Vector3 vel = playerRb.linearVelocity;
+
+                if (vel.sqrMagnitude > 0.01f)
+                {
+                    // Rotate particle system so emission is opposite velocity
+                    speedLines.transform.rotation = Quaternion.LookRotation(-vel.normalized);
+
+                    // Scale emission rate with speed
+                    var emission = speedLines.emission;
+                    emission.rateOverTime = vel.magnitude * 3f;
+                }
+            }
+
             // Stop when close enough
             if (Vector3.Distance(playerRb.position, grapplePoint) < stopDistance)
             {
@@ -94,6 +116,9 @@ public class GrappleHook : MonoBehaviour
         lineRenderer.SetPosition(0, gunTip.position);
         lineRenderer.SetPosition(1, grapplePoint);
 
+        if (speedLines != null)
+            speedLines.Play();
+
         Debug.Log("Started grapple at " + point);
     }
 
@@ -102,6 +127,10 @@ public class GrappleHook : MonoBehaviour
         isGrappling = false;
         lineRenderer.positionCount = 0;
 
+        if (speedLines != null)
+            speedLines.Stop();
+
         Debug.Log("Stopped grapple");
     }
 }
+
