@@ -1799,7 +1799,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: b5663cbd403c53c4691ea76de2f9d1b9, type: 2}
     - target: {fileID: 7168610973488767799, guid: 4bab77afca28bcf45b9de5ea8e203452, type: 3}
       propertyPath: m_LocalScale.x
-      value: 86.27767
+      value: 94.353264
       objectReference: {fileID: 0}
     - target: {fileID: 7168610973488767799, guid: 4bab77afca28bcf45b9de5ea8e203452, type: 3}
       propertyPath: m_LocalScale.y
@@ -1807,7 +1807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7168610973488767799, guid: 4bab77afca28bcf45b9de5ea8e203452, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 214.7
+      value: 213.3
       objectReference: {fileID: 0}
     - target: {fileID: 7168610973488767799, guid: 4bab77afca28bcf45b9de5ea8e203452, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1815,7 +1815,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7168610973488767799, guid: 4bab77afca28bcf45b9de5ea8e203452, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -211.2
+      value: -212.8
       objectReference: {fileID: 0}
     - target: {fileID: 7168610973488767799, guid: 4bab77afca28bcf45b9de5ea8e203452, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3959,6 +3959,10 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: f07f07ece51cdf54484e4eaa2bbc609c, type: 3}
     - target: {fileID: 4513283576862488006, guid: 039074de2eb4fd34cbfc3b6a42bbe41c, type: 3}
       propertyPath: playerCam
+      value: 
+      objectReference: {fileID: 2111273539}
+    - target: {fileID: 8177052775612898982, guid: 039074de2eb4fd34cbfc3b6a42bbe41c, type: 3}
+      propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 2111273539}
     m_RemovedComponents: []

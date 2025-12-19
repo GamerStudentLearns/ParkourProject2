@@ -19226,6 +19226,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4033304523302939127, guid: 039074de2eb4fd34cbfc3b6a42bbe41c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1226347088}
+    - target: {fileID: 4033304523302939127, guid: 039074de2eb4fd34cbfc3b6a42bbe41c, type: 3}
+      propertyPath: teleportSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f07f07ece51cdf54484e4eaa2bbc609c, type: 3}
     - target: {fileID: 4513283576862488006, guid: 039074de2eb4fd34cbfc3b6a42bbe41c, type: 3}
       propertyPath: playerCam
       value: 

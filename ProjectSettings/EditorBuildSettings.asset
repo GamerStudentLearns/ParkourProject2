@@ -33,13 +33,16 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level3.unity
     guid: 92f94c1c67c40394da5bd33e4b4d53c7
   - enabled: 1
+    path: Assets/Scenes/Transitions/LevelThreeEndScene.unity
+    guid: 8001e3a938ce75341814ea15fb5c1450
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level4.unity
+    guid: 758d97b75fe0a0b44ad4d10612b17533
+  - enabled: 1
     path: Assets/Scenes/Transitions/WinScene.unity
     guid: a49513e0b5c9210448c12e67dac06b50
   - enabled: 1
     path: Assets/Scenes/Levels/SecretLevel.unity
     guid: e9413cd506e80614ead542c25b513e17
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level4.unity
-    guid: 758d97b75fe0a0b44ad4d10612b17533
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
