@@ -18,6 +18,9 @@ public class GrappleHook : MonoBehaviour
     [Header("Visual Effects")]
     [SerializeField] private ParticleSystem speedLines; // Assign particle system prefab in Inspector
 
+    [Header("Activation")]
+    [SerializeField] private GameObject objectToActivate; // Object to toggle when grappling
+
     private Vector3 grapplePoint;
     private bool isGrappling = false;
 
@@ -30,6 +33,9 @@ public class GrappleHook : MonoBehaviour
 
         if (speedLines != null)
             speedLines.Stop();
+
+        if (objectToActivate != null)
+            objectToActivate.SetActive(false);
     }
 
     void Update()
@@ -119,6 +125,10 @@ public class GrappleHook : MonoBehaviour
         if (speedLines != null)
             speedLines.Play();
 
+        // Activate object
+        if (objectToActivate != null)
+            objectToActivate.SetActive(true);
+
         Debug.Log("Started grapple at " + point);
     }
 
@@ -129,6 +139,10 @@ public class GrappleHook : MonoBehaviour
 
         if (speedLines != null)
             speedLines.Stop();
+
+        // Deactivate object
+        if (objectToActivate != null)
+            objectToActivate.SetActive(false);
 
         Debug.Log("Stopped grapple");
     }
