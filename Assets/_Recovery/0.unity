@@ -264,18 +264,6 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetKeyboardSensitivity
       objectReference: {fileID: 0}
-    - target: {fileID: 572856639734426632, guid: 4cdaa8b9f5b7ee348ba31856748c6b22, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 572856639734426632, guid: 4cdaa8b9f5b7ee348ba31856748c6b22, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 572856639734426632, guid: 4cdaa8b9f5b7ee348ba31856748c6b22, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 837.1331
-      objectReference: {fileID: 0}
     - target: {fileID: 710625416586883218, guid: 4cdaa8b9f5b7ee348ba31856748c6b22, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -504,18 +492,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4668075604820890638, guid: 4cdaa8b9f5b7ee348ba31856748c6b22, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1638579494}
-    - target: {fileID: 4668075604820890638, guid: 4cdaa8b9f5b7ee348ba31856748c6b22, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: QuitGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 4668075604820890638, guid: 4cdaa8b9f5b7ee348ba31856748c6b22, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MenuController, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 4735014765999317822, guid: 4cdaa8b9f5b7ee348ba31856748c6b22, type: 3}
       propertyPath: m_margin.x
       value: -8.822891
@@ -623,7 +599,7 @@ PrefabInstance:
     - target: {fileID: 6267564527993573888, guid: 4cdaa8b9f5b7ee348ba31856748c6b22, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 571279339, guid: 8c19c91284b341146a99af372711797d, type: 3}
+      objectReference: {fileID: -1308019472, guid: b5c38fc1bc8f2f54784286b97b565cf1, type: 3}
     - target: {fileID: 6536217916315231769, guid: 4cdaa8b9f5b7ee348ba31856748c6b22, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -4916,7 +4892,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: be2424dce4c815544923d940bd321f9e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0

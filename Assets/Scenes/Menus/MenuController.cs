@@ -13,7 +13,7 @@ public class MenuController : MonoBehaviour
     [Header("Audio Settings")]
     [SerializeField] private TMP_Text volumeTextValue = null;
     [SerializeField] private Slider volumeSlider = null;
-    [SerializeField] private float defaultVolume = 1.0f;
+    [SerializeField] private float defaultVolume = 0.5f;
 
     [SerializeField] private GameObject comfirmationPrompt = null;
 
@@ -107,6 +107,11 @@ public class MenuController : MonoBehaviour
             if (volumeTextValue != null)
                 volumeTextValue.text = volume.ToString("0.0");
         }
+    }
+    
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     public IEnumerator ComfirmationBox(float duration)

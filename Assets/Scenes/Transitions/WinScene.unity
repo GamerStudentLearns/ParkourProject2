@@ -549,7 +549,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 28828c52cea39f9439ee30dba69c98a1, type: 3}
+  m_Resource: {fileID: 8300000, guid: 9f321a3866d60994982e0b43dbb77836, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.52
   m_Pitch: 1
@@ -2502,7 +2502,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: b9f77ccaed99ea74588f2514f01fad98, type: 3}
+  m_Texture: {fileID: 2800000, guid: c9981b8f5ff90464fb58e2b2b7f5a54b, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
